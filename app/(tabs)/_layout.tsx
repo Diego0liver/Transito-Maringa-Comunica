@@ -7,6 +7,8 @@ import { IconSymbol } from '@/components/ui/IconSymbol';
 import TabBarBackground from '@/components/ui/TabBarBackground';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
+import FontAwesome from '@expo/vector-icons/FontAwesome';
+import AntDesign from '@expo/vector-icons/AntDesign';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -20,12 +22,18 @@ export default function TabLayout() {
         tabBarBackground: TabBarBackground,
         tabBarStyle: Platform.select({
           ios: {
-            // Use a transparent background on iOS to show the blur effect
             position: 'absolute',
           },
           default: {},
         }),
       }}>
+      <Tabs.Screen
+        name="listaAvisos"
+        options={{
+          title: 'Lista de avisos',
+          tabBarIcon: ({ color }) => <FontAwesome size={24} name="th-list" color={color} />,
+        }}
+      />
       <Tabs.Screen
         name="index"
         options={{
@@ -34,10 +42,10 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="criarAviso"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: 'Criar aviso',
+          tabBarIcon: ({ color }) => <AntDesign size={24} name="plussquare" color={color} />,
         }}
       />
     </Tabs>

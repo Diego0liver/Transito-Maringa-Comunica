@@ -1,9 +1,10 @@
-import { Image, StyleSheet, Platform } from 'react-native';
+import { Image, StyleSheet, TouchableOpacity, Text, View } from 'react-native';
 
 import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import { router } from 'expo-router';
 
 export default function HomeScreen() {
   return (
@@ -11,50 +12,59 @@ export default function HomeScreen() {
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
       headerImage={
         <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
+          source={require('@/assets/images/catedral-maringa.png')}
         />
       }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12'
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          Tap the Explore tab to learn more about what's included in this starter app.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          When you're ready, run{' '}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
+      <ThemedView style={styles.container}>
+        <ThemedView style={styles.titleContainer}>
+            <ThemedText type="title">Bem vindo!</ThemedText>
+            <HelloWave />
+        </ThemedView>
+        <ThemedView style={styles.stepContainer}>
+          <ThemedText>Seja bem vindo ao aplicativo</ThemedText>
+          <ThemedText type="subtitle">Transito Maringá Comunica</ThemedText>
+        </ThemedView>
+        <TouchableOpacity onPress={() => router.push('/(tabs)/listaAvisos')} style={styles.buttonHome}>
+          <Text style={styles.textButton}>Lista de avisos</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => router.push('/(tabs)/criarAviso')} style={styles.buttonHome}>
+          <Text style={styles.textButton}>Criar aviso</Text>
+        </TouchableOpacity>
+        <ThemedView>
+          <Text style={styles.tituloEmergencia}>Emergencias</Text>
+          <View style={styles.containerEmergencia}>
+            <Text style={styles.txtEmergencia}>Policia: 191</Text>
+            <Text style={styles.txtEmergencia}>Bombeiro: 193</Text>
+          </View>
+          <View style={styles.containerEmergencia}>
+            <Text style={styles.txtEmergencia}>Samu: 192</Text>
+            <Text style={styles.txtEmergencia}>SEMOB: (44) 3127-7300</Text>
+          </View>
+        </ThemedView>
       </ThemedView>
     </ParallaxScrollView>
   );
 }
 
 const styles = StyleSheet.create({
+  container: {
+    alignItems: 'center', 
+    justifyContent: 'center',
+  },
+  buttonHome: {
+    backgroundColor: "#4B89BF",
+    alignItems: 'center', 
+    justifyContent: 'center',
+    height: 80,
+    width: 250,
+    borderRadius: 19,
+    marginTop: 20
+  },
+  textButton: {
+    color: "#fff",
+    textAlign: "center",
+    fontSize: 20
+  },
   titleContainer: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -64,11 +74,18 @@ const styles = StyleSheet.create({
     gap: 8,
     marginBottom: 8,
   },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
+  tituloEmergencia: {
+    color: '#fff',
+    marginTop: 30,
+    fontSize: 20
   },
+  txtEmergencia: {
+    color: '#fff'
+  },
+  containerEmergencia: {
+    marginTop: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: 300
+  }
 });

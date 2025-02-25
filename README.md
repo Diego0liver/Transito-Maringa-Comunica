@@ -1,50 +1,66 @@
-# Welcome to your Expo app 👋
+# Bem vindo ao Transito Maringá Comunica 👋
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Este aplicativo, tem como objetivo melhorar a comunicação no trânsito, permitindo que motoristas e pedestres sejam alertados sobre vias bloqueadas, interdições e condições de tráfego em tempo real. Com uma interface intuitiva, o app facilita o compartilhamento de informações importantes para garantir um deslocamento mais seguro e eficiente.
 
-## Get started
+## Índice
 
+- [Funcionalidades do projeto](#funcionalidades)
+- [Layouts/Demostração](#layout)
+- [Tecnologias utilizadas](#tecnologias)
+- [Como rodar o projeto](#build)
+- [Onde baixar](#site)
+- [Pessoas autoras](#dev)
+
+## 🛠️ Funcionalidades do projeto
+O aplicativo possui três telas principais, facilitando a comunicação sobre vias bloqueadas ou que exigem atenção especial no trânsito:
+
+### 🏠 Home (Tela Principal)
+
+Opções para criar um aviso e listar avisos ativos.
+Exibição de números úteis, como polícia, bombeiros e emergência.
+
+### 📋 Lista de Avisos
+
+Exibe os avisos cadastrados, mostrando:
+Rua/Avenida afetada.
+Data e horário do aviso.
+Mensagem descritiva sobre a situação.
+Flag de status, indicando se a via está bloqueada ou apenas requer atenção.
+### ✍️ Criar Aviso
+
+Permite cadastrar um novo aviso informando:
+Se a via está bloqueada ou apenas requer atenção.
+Nome da rua ou avenida afetada.
+Uma mensagem com detalhes da situação.
+
+## Tecnologias útilizadas
+- React Native expo
+- Firebase
+
+## Como rodar o projeto
 1. Install dependencies
 
    ```bash
    npm install
    ```
 
+2. Configurar firebase
+
+   ```bash
+   Renomei o arquivo firebaseConfigExemplo para firebaseConfig.
+   Coloque as credencias do firebase.
+   ```
+
 2. Start the app
 
    ```bash
-    npx expo start
+    npx expo start --clear
    ```
 
-In the output, you'll find options to open the app in a
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## Onde baixar
+Criei esse site com o link do APK para facilitar as pessoas a baixar o APP. <br/>
+www.maringacomunica.vercel.app
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## Pessoas autoras
+Este aplicativo foi desenvolvido por mim, com o apoio da população de Maringá. Durante uma palestra sobre trânsito, foram coletadas sugestões e insights valiosos para aprimorar a comunicação e a segurança nas vias da cidade. 

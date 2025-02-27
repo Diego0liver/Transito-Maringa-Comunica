@@ -2,7 +2,8 @@ import { StyleSheet, Text, View, TouchableOpacity, TextInput } from 'react-nativ
 
 import { ThemedView } from '@/components/ThemedView';
 import firebase from '../config/db/firebase';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import * as Network from 'expo-network';
 
 export default function CriarAviso() {
     const [tipoAviso, setTipoAviso] = useState(0);
@@ -10,6 +11,16 @@ export default function CriarAviso() {
     const [mensamgeAviso, setMensagemAviso] = useState('');
     const [errorRua, setErrorRua] = useState('');
     const [errorMensagemAviso, setErrorMensagemAviso] = useState('');
+    const [isConnected, setIsConnected] = useState(null);
+    
+    useEffect(() => {
+    const checkConnection = async () => {
+        const networkState = await Network.getNetworkStateAsync();
+        setIsConnected(networkState.isConnected);
+    };
+
+    checkConnection();
+    }, []);
 
     const options = [
         { id: 0, label: "Alerta", mensagem: 'Alerta para reduzir a velocidade' },
@@ -104,8 +115,10 @@ export default function CriarAviso() {
                     maxLength={500}
                     />
                 {errorMensagemAviso ? <Text style={styles.textoErro}>{errorMensagemAviso}</Text> : null}
-                <TouchableOpacity style={styles.button} onPress={submitAviso}>
-                    <Text style={styles.buttonTxt}>Salvar</Text>
+                <TouchableOpacity style={styles.button} onPress={submitAviso} disabled={!isConnected}>
+                    <Text style={styles.buttonTxt}>
+                        {isConnected ? "Salvar" : "Sem conexão"}
+                    </Text>
                 </TouchableOpacity>
             </View>
         </ThemedView>

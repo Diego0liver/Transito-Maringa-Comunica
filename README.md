@@ -33,9 +33,17 @@ Se a via está bloqueada ou apenas requer atenção.
 Nome da rua ou avenida afetada.
 Uma mensagem com detalhes da situação.
 
+## Layouts/Demostração
+<img src="assets/images/tela-menu.jpg"  width="200" />
+<img src="assets/images/tela-lista.jpg"  width="200"/>
+<img src="assets/images/tela-criar.jpg"  width="200"/>
+
 ## Tecnologias útilizadas
 - React Native expo
+- Expo-network
 - Firebase
+- Figma
+- Fluxograma
 
 ## Como rodar o projeto
 1. Install dependencies

@@ -1,12 +1,25 @@
 import { Image, StyleSheet, TouchableOpacity, Text, View } from 'react-native';
 
+import React, { useEffect, useState } from "react";
 import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { router } from 'expo-router';
+import * as Network from 'expo-network';
 
 export default function HomeScreen() {
+  const [isConnected, setIsConnected] = useState(null);
+
+  useEffect(() => {
+    const checkConnection = async () => {
+      const networkState = await Network.getNetworkStateAsync();
+      setIsConnected(networkState.isConnected);
+    };
+
+    checkConnection();
+  }, []);
+  
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
@@ -16,6 +29,9 @@ export default function HomeScreen() {
         />
       }>
       <ThemedView style={styles.container}>
+        <Text style={{marginBottom: 10, color: '#fff'}}>
+          {isConnected ? "" : "Sem conexão, ligue a internet ❌"}
+        </Text>
         <ThemedView style={styles.titleContainer}>
             <ThemedText type="title">Bem vindo!</ThemedText>
             <HelloWave />

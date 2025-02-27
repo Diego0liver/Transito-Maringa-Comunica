@@ -68,7 +68,7 @@ Uma mensagem com detalhes da situação.
 
 ## Onde baixar
 Criei esse site com o link do APK para facilitar as pessoas a baixar o APP. <br/>
-www.maringacomunica.vercel.app
+[www.maringacomunica.vercel.app](https://site-maringa-comunica.vercel.app/)
 
 ## Pessoas autoras
 Este aplicativo foi desenvolvido por mim, com o apoio da população de Maringá. Durante uma palestra sobre trânsito, foram coletadas sugestões e insights valiosos para aprimorar a comunicação e a segurança nas vias da cidade. 

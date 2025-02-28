@@ -42,7 +42,7 @@ Uma mensagem com detalhes da situação.
 - React Native expo
 - Expo-network
 - Firebase
-- Figma
+- [Figma](https://www.figma.com/community/file/1477336449935606570)
 - Fluxograma
 
 ## Como rodar o projeto

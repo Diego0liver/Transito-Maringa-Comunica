@@ -3,10 +3,21 @@ import { StyleSheet, Text, View, FlatList, ActivityIndicator } from 'react-nativ
 import { ThemedView } from '@/components/ThemedView';
 import firebase from '../config/db/firebase';
 import { useEffect, useState } from 'react';
+import * as Network from 'expo-network';
 
 export default function ListaAvisos() {
     const [avisos, setAvisos] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [isConnected, setIsConnected] = useState(null);
+
+    useEffect(() => {
+        const checkConnection = async () => {
+            const networkState = await Network.getNetworkStateAsync();
+            setIsConnected(networkState.isConnected);
+        };
+
+        checkConnection();
+    }, []);
     
     useEffect(() => {
         const avisosData = firebase.firestore()
@@ -38,6 +49,7 @@ export default function ListaAvisos() {
 
     return (
         <ThemedView style={styles.container}>
+            {isConnected ? "" : "Sem conexão, ligue a internet ❌"}
             {loading ? (
                 <View style={styles.loadingContainer}>
                     <ActivityIndicator size="large" color="#007AFF" />

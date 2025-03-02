@@ -43,7 +43,7 @@ Uma mensagem com detalhes da situação.
 - Expo-network
 - Firebase
 - [Figma](https://www.figma.com/community/file/1477336449935606570)
-- Fluxograma
+- [Fluxograma](https://raw.githubusercontent.com/Diego0liver/Transito-Maringa-Comunica/refs/heads/main/assets/images/fluxograma.jpg)
 
 ## Como rodar o projeto
 1. Install dependencies
